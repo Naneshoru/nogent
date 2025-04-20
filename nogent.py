@@ -61,5 +61,5 @@ agent = initialize_agent(
 if __name__ == "__main__":
     while True:
         query = input("🤖 Pergunte algo: ")
-        resposta = agent.run(query)
+        resposta = agent.invoke({"input": query})
         print(resposta)
