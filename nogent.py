@@ -6,6 +6,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.llms import Ollama
 from newsdataapi import NewsDataApiClient
 from dotenv import load_dotenv
+from langchain.memory import ConversationBufferMemory
 import os
 
 load_dotenv()
@@ -25,12 +26,11 @@ def buscar_noticias(query: str) -> str:
 
         if not articles:
             return "Nenhuma notícia encontrada para o termo fornecido."
-        
-        # Pega até 3 notícias
+
         noticias_formatadas = "\n".join(
             [f"- {artigo['title']} ({artigo['link']})" for artigo in articles[:3]]
         )
-        return f"🗞️ Notícias sobre '{query}':\n{noticias_formatadas}"
+        return f"📵️ Notícias sobre '{query}':\n{noticias_formatadas}"
 
     except Exception as e:
         return f"Erro ao buscar notícias: {str(e)}"
@@ -50,10 +50,13 @@ tools = [
 
 llm = Ollama(model="mistral")
 
+memory = ConversationBufferMemory(memory_key="chat_history")
+
 agent = initialize_agent(
-    tools, 
-    llm, 
+    tools=tools,
+    llm=llm,
     agent="zero-shot-react-description",
+    memory=memory,
     handle_parsing_errors=True,
     verbose=True
 )
