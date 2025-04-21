@@ -18,6 +18,11 @@ tools = [
         func=buscar_noticias,
         description="Busca notícias recentes em português sobre qualquer assunto."
     ),
+    Tool(
+        name="AnalisadorDeTexto",
+        func=lambda x: llm.invoke(f"Faça um resumo/tradução/análise de sentimento do seguinte texto:\n{x}"),
+        description="Processa textos com tarefas específicas como resumo ou tradução."
+    )
 ]
 
 agent = initialize_agent(
