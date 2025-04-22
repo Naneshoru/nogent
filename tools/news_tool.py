@@ -1,9 +1,9 @@
 from newsdataapi import NewsDataApiClient
 import os
 
-api_key = os.environ.get("API_KEY")
+api_key = os.environ.get("NEWS_API_KEY")
 if not api_key:
-    raise ValueError("A variável de ambiente 'API_KEY' não está configurada.")
+    raise ValueError("A variável de ambiente 'NEWS_API_KEY' não está configurada.")
 
 news_api = NewsDataApiClient(apikey=api_key)
 

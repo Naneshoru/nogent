@@ -1,4 +1,4 @@
-from calendar_auth import get_calendar_service
+from tools.calendar_auth import get_calendar_service
 
 def listar_eventos(input: str = None) -> str:
     try:
