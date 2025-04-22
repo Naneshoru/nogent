@@ -30,6 +30,7 @@ tools = [
 prompt_template = PromptTemplate(
     input_variables=["input", "agent_scratchpad"],
     template=(
+        "Hoje é {current_date}.\n"
         "Você é um assistente inteligente. Use as ferramentas disponíveis para responder às perguntas do usuário.\n\n"
         "Pergunta: {input}\n\n"
         "{agent_scratchpad}"
@@ -49,6 +50,7 @@ agent = initialize_agent(
 if __name__ == "__main__":
     while True:
         query = input("🤖 Pergunte algo: ")
-        full_input = f"{query}"
+        current_date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        full_input = f"Hoje é {current_date}. {query}"
         resposta = agent.invoke({"input": full_input})
         print(resposta)
