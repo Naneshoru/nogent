@@ -41,7 +41,10 @@ Este projeto é um assistente inteligente que utiliza ferramentas como Wikipedia
    ```
 
 2. **Virtual environment**:
+  ```bash
   source .venv/Scripts/activate
-
+  ```
 3. **Rodar o projeto**:
+  ```bash
   python main.py
+  ```
