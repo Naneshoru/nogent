@@ -10,7 +10,6 @@ Este projeto é um assistente inteligente que utiliza ferramentas como Wikipedia
 - **News Tool**: Obtém notícias recentes com base em consultas e intervalos de datas.
 - **Calendar Tool**: Consulta eventos do Google Calendar.
 - **Prompt Personalizado**: Configuração de prompts para interagir com o modelo de linguagem.
-- **Integração com Telegram**: Pode ser configurado para responder via bot do Telegram.
 
 ---
 
@@ -40,3 +39,9 @@ Este projeto é um assistente inteligente que utiliza ferramentas como Wikipedia
    git clone https://github.com/seu-usuario/agent.git
    cd agent
    ```
+
+2. **Virtual environment**:
+  source .venv/Scripts/activate
+
+3. **Rodar o projeto**:
+  python main.py
